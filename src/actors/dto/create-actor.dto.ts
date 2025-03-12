@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsMongoId, IsNumber, IsString } from 'class-validator';
+import { IsMongoId, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateActorDto {
   @ApiProperty({ example: 'Jeki Chan' })
@@ -12,5 +12,6 @@ export class CreateActorDto {
 
   @ApiProperty({ example: '67cec7487eb09790a53f291b' })
   @IsMongoId()
-  movie: string;
+  @IsOptional()
+  movies?: string;
 }
